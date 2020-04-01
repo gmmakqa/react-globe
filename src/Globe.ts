@@ -317,6 +317,7 @@ export default class Globe {
     this.updateOptions(cameraOptions, 'camera');
     const {
       autoRotateSpeed,
+      cameraFOV,
       distanceRadiusScale,
       enableAutoRotate,
       enableRotate,
@@ -338,7 +339,7 @@ export default class Globe {
     }
 
     this.camera.far = CAMERA_FAR;
-    this.camera.fov = CAMERA_FOV;
+    this.camera.fov = cameraFOV;
     this.camera.near = CAMERA_NEAR;
     this.orbitControls.autoRotate = enableAutoRotate;
     this.orbitControls.autoRotateSpeed = autoRotateSpeed;
@@ -729,7 +730,8 @@ export default class Globe {
       const [width, height] = size;
       this.renderer.setSize(width, height);
       this.camera.aspect = width / height;
-      this.camera.fov = (height > width) ? (height / width) * CAMERA_FOV : CAMERA_FOV;
+      const { cameraFOV } = this.options.camera;
+      this.camera.fov = (height > width) ? (height / width) * cameraFOV : cameraFOV;
     }
     this.camera.updateProjectionMatrix();
   }

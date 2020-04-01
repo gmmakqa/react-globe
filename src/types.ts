@@ -122,6 +122,8 @@ export interface InteractableScene extends Interactable, Scene {}
 export interface CameraOptions {
   /** Speed of auto-rotation. */
   autoRotateSpeed: number;
+  /** FOV of the camera. */
+  cameraFOV: number;
   /** Distance (measured as a scale factor to the globe radius) that the camera is placed.  This value should be greater than 1. */
   distanceRadiusScale: number;
   /** Enable the auto-rotate feature of the globe. */
