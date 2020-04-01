@@ -354,6 +354,8 @@ export default class Globe {
     this.orbitControls.minPolarAngle = minPolarAngle;
     this.orbitControls.rotateSpeed = rotateSpeed;
     this.orbitControls.zoomSpeed = zoomSpeed;
+
+    this.camera.updateProjectionMatrix();
   }
 
   updateFocus(
